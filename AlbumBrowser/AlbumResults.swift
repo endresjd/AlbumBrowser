@@ -14,6 +14,7 @@ import MacPlugins
 // 3. the @Published property wrapper is added to any properties inside an observed object
 //    that should cause views to update when they change.
 // 4. @MainActor makes sure marked items happen on the main thread
+// 5. @SearchTerm is my property wrapper to convert a string into a form to include all words.
 @MainActor class AlbumResults: ObservableObject {
     @Published private(set) var result: Result<[Album], Error> = .success([Album]())
     @Published private(set) var term = ""
