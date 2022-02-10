@@ -8,10 +8,11 @@
 import Combine
 import XCTest
 import Hippolyte
+import SwiftUI
 @testable import AlbumBrowser
 
 class AlbumBrowserTests: XCTestCase {
-    var subject: AlbumResults!
+//    @StateObject var subject = AlbumResults()
     
     var cancelable: AnyCancellable? = nil
     var data: Data {
@@ -58,7 +59,7 @@ class AlbumBrowserTests: XCTestCase {
         Hippolyte.shared.add(stubbedRequest: request)
         Hippolyte.shared.start()
         
-        subject = AlbumResults()
+//        subject = AlbumResults()
     }
 
     override func tearDownWithError() throws {
@@ -79,15 +80,18 @@ class AlbumBrowserTests: XCTestCase {
     }
 
     func testFetchAlbums() async throws {
+        let subject = await AlbumResults()
         let result = try await subject.fetchAlbums(term: "Pink Floyd")
         
         XCTAssertEqual(result.count, 1)
     }
     
     func testFetch() async throws {
+        let subject = await AlbumResults()
+
         await subject.fetch(term: "Pink Floyd")
         
-        switch subject.result {
+        switch await subject.result {
         case .success(let albums):
             XCTAssertEqual(albums.count, 1)
         case .failure(let error):
@@ -96,6 +100,7 @@ class AlbumBrowserTests: XCTestCase {
     }
     
     func testFetchPublisher() async throws {
+        let subject = await AlbumResults()
         let changed = expectation(description: name)
         
         changed.expectedFulfillmentCount = 2
@@ -107,7 +112,7 @@ class AlbumBrowserTests: XCTestCase {
         await subject.fetch(term: "Pink Floyd")
         await waitForExpectations(timeout: 1.0)
 
-        let results = subject.result
+        let results = await subject.result
 
         switch results {
         case .success(let albums):

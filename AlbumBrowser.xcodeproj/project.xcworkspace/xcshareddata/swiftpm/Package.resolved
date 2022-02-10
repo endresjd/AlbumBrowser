@@ -2,12 +2,30 @@
   "object": {
     "pins": [
       {
+        "package": "BetterCodable",
+        "repositoryURL": "https://github.com/marksands/BetterCodable",
+        "state": {
+          "branch": null,
+          "revision": "61153170668db7a46a20a87e35e70f80b24d4eb5",
+          "version": "0.4.0"
+        }
+      },
+      {
         "package": "Hippolyte",
         "repositoryURL": "https://github.com/JanGorman/Hippolyte",
         "state": {
           "branch": null,
           "revision": "6f01393bf28bc088e695949da0ad700078189b18",
           "version": "1.4.0"
+        }
+      },
+      {
+        "package": "MacPlugins",
+        "repositoryURL": "https://endres@bitbucket.org/johnendres/macplugins.git",
+        "state": {
+          "branch": null,
+          "revision": "50765fa05fcff2f74b776021e4c36cb949fd95ed",
+          "version": "0.0.3"
         }
       }
     ]

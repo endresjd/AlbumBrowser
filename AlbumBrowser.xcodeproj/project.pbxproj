@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		458580CE277A420F005AAA9F /* MacPlugins in Frameworks */ = {isa = PBXBuildFile; productRef = 458580CD277A420F005AAA9F /* MacPlugins */; };
+		458580D1277A5519005AAA9F /* BetterCodable in Frameworks */ = {isa = PBXBuildFile; productRef = 458580D0277A5519005AAA9F /* BetterCodable */; };
 		45BA5E092735B9A600B6CB2C /* AlbumBrowserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA5E082735B9A600B6CB2C /* AlbumBrowserApp.swift */; };
 		45BA5E0B2735B9A600B6CB2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA5E0A2735B9A600B6CB2C /* ContentView.swift */; };
 		45BA5E0D2735B9A700B6CB2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BA5E0C2735B9A700B6CB2C /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				458580CE277A420F005AAA9F /* MacPlugins in Frameworks */,
+				458580D1277A5519005AAA9F /* BetterCodable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +125,10 @@
 			dependencies = (
 			);
 			name = AlbumBrowser;
+			packageProductDependencies = (
+				458580CD277A420F005AAA9F /* MacPlugins */,
+				458580D0277A5519005AAA9F /* BetterCodable */,
+			);
 			productName = awlookat;
 			productReference = 45BA5E052735B9A600B6CB2C /* AlbumBrowser.app */;
 			productType = "com.apple.product-type.application";
@@ -176,6 +184,8 @@
 			mainGroup = 45BA5DFC2735B9A600B6CB2C;
 			packageReferences = (
 				45BA5E29273B15A500B6CB2C /* XCRemoteSwiftPackageReference "Hippolyte" */,
+				458580CC277A420F005AAA9F /* XCRemoteSwiftPackageReference "macplugins" */,
+				458580CF277A5519005AAA9F /* XCRemoteSwiftPackageReference "BetterCodable" */,
 			);
 			productRefGroup = 45BA5E062735B9A600B6CB2C /* Products */;
 			projectDirPath = "";
@@ -490,6 +500,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		458580CC277A420F005AAA9F /* XCRemoteSwiftPackageReference "macplugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://endres@bitbucket.org/johnendres/macplugins.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.3;
+			};
+		};
+		458580CF277A5519005AAA9F /* XCRemoteSwiftPackageReference "BetterCodable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marksands/BetterCodable";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
 		45BA5E29273B15A500B6CB2C /* XCRemoteSwiftPackageReference "Hippolyte" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JanGorman/Hippolyte";
@@ -501,6 +527,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		458580CD277A420F005AAA9F /* MacPlugins */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 458580CC277A420F005AAA9F /* XCRemoteSwiftPackageReference "macplugins" */;
+			productName = MacPlugins;
+		};
+		458580D0277A5519005AAA9F /* BetterCodable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 458580CF277A5519005AAA9F /* XCRemoteSwiftPackageReference "BetterCodable" */;
+			productName = BetterCodable;
+		};
 		45BA5E2A273B15A500B6CB2C /* Hippolyte */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 45BA5E29273B15A500B6CB2C /* XCRemoteSwiftPackageReference "Hippolyte" */;

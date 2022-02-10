@@ -8,20 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var albums: AlbumResults
+    @EnvironmentObject var albums: AlbumResults
 
     var body: some View {
         switch albums.result {
         case .success(let albumsArray):
             List(albumsArray, id: \.collectionId) { album in
                 HStack {
-                    AsyncImage(url: URL(string: album.artworkUrl100)) { image in
-                        image
-                            .resizable()
-                    } placeholder: {
-                        ProgressView()
+                    AsyncImage(url: URL(string: album.artworkUrl100)) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                        } else if phase.error != nil {
+                            Image(systemName: "exclamationmark.icloud.fill")
+                                .resizable()
+                        } else {
+                            ProgressView()
+                        }
                     }
-                        .frame(width: 100, height: 100)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 75, height: 75)
+
+//                    AsyncImage(url: URL(string: album.artworkUrl100)) { image in
+//                        image
+//                            .resizable()
+//                    } placeholder: {
+//                        ProgressView()
+//                    }
+//                        .frame(width: 100, height: 100)
 
                     Text(album.collectionName)
                 }
@@ -45,7 +59,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ContentView(albums: AlbumResults())
+            ContentView()
+                .environmentObject(AlbumResults())
         }
     }
 }

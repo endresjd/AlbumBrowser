@@ -9,10 +9,13 @@ import SwiftUI
 
 @main
 struct AlbumBrowserApp: App {
+    @StateObject var albums = AlbumResults()
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView(albums: AlbumResults())
+                ContentView()
+                    .environmentObject(albums)
             }
         }
     }
